@@ -816,16 +816,16 @@ bool Editor::importVectorImage( QString filePath )
         importedVectorImage->selectAll();
         vectorImage->paste( *importedVectorImage );
     }
-    /*
+
     else
     {
-        QMessageBox::warning( mMainWindow,
+        QMessageBox::warning( this->mScribbleArea,
                               tr( "Warning" ),
                               tr( "Unable to load vector image.<br><b>TIP:</b> Use Vector layer to import vectors." ),
                               QMessageBox::Ok,
                               QMessageBox::Ok );
     }
-    */
+
     return ok;
 }
 

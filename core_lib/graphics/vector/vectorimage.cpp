@@ -15,6 +15,7 @@ GNU General Public License for more details.
 */
 #include <cmath>
 #include <QImage>
+#include <QMessageBox>
 #include "object.h"
 #include "util.h"
 #include "vectorimage.h"
@@ -34,13 +35,14 @@ bool VectorImage::read(QString filePath)
     QFileInfo fileInfo(filePath);
 	if ( fileInfo.isDir() )
 	{
+        qWarning() << "directory Message";
 		return false;
 	}
 
     QFile* file = new QFile(filePath);
     if (!file->open(QFile::ReadOnly))
     {
-        //QMessageBox::warning(this, "Warning", "Cannot read file");
+        qWarning() << "Warning Message";
         return false;
     }
 

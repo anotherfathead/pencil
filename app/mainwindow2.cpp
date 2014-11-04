@@ -522,10 +522,12 @@ void MainWindow2::importImage()
                                                         PENCIL_IMAGE_FILTER );
     if ( strFilePath.isEmpty() )
     {
+        QMessageBox::warning(this, tr("bla"), tr("lak"),QMessageBox::Ok,
+                             QMessageBox::Ok );
         return;
     }
 
-    if ( QFile::exists( strFilePath ) )
+    if ( !QFile::exists( strFilePath ) )
     {
         return;
     }
@@ -539,6 +541,8 @@ void MainWindow2::importImage()
                               QMessageBox::Ok,
                               QMessageBox::Ok );
         return;
+    } else {
+        QMessageBox::warning( this, tr("ma"), tr("blah"), QMessageBox::Ok, QMessageBox::Ok);
     }
 
     settings.setValue( "lastImportPath", strFilePath );
